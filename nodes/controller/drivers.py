@@ -31,6 +31,18 @@ class ModuleTypes(Enum):
             return ModuleTypes.RELAY_3.value
         if "3 IR" in raw:
             return ModuleTypes.IR_3.value
+        #TODO: This should be it's own module Type This is for iTach Flex Cable see https://www.globalcache.com/files/releases/flex-16/API-Flex_TCP_1.6.pdf
+        if "IR" in raw:
+            return ModuleTypes.IR_3.value
+        #TODO: This should be it's own module Type
+        if "IR_BLASTER" in raw:
+            return ModuleTypes.IR_3.value
+        #TODO: This should be it's own module Type
+        if "IRTRIPORT" in raw:
+            return ModuleTypes.IR_3.value
+        #TODO: This should be it's own module Type
+        if "IRTRIPORT_BLASTER" in raw:
+            return ModuleTypes.IR_3.value
         if "1 SERIAL" in raw:
             return ModuleTypes.SERIAL_1.value
         return ModuleTypes.UNKNOWN.value

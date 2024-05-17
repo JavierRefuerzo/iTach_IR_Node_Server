@@ -177,8 +177,11 @@ class Controller :
             # error should already be set
             return response
         split = response.split("\r")
+        # This is for iTach
+        # ['device,0,0 ETHERNET', 'device,1,3 IR', 'endlistdevices', '']
+        # This if for iTachFlex
+       # ['device,0,0 ETHERNET', 'device,1,1 IRTRIPORT', 'endlistdevices', ''] 
         if len(split) < (self.moduleAddress + 1):
-            # ['device,0,0 ETHERNET', 'device,1,3 IR', 'endlistdevices', '']
             self._setModuleTypeObserver(ModuleTypes.UNKNOWN.value)
             return
         moduleData = split[self.moduleAddress]
